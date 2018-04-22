@@ -1,0 +1,78 @@
+﻿<Window x:Class="wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        StateChanged="OnStateChanged" IsVisibleChanged="OnIsVisibleChanged"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Name="oneWindow" WindowState="Maximized" WindowStartupLocation="CenterScreen"
+        >
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Cloud Sync">
+                <MenuItem Name="syncToggle" Header="_Activate Cloud Sync" IsCheckable="True" StaysOpenOnClick="True" Unchecked="MenuItem_Unchecked_1" Checked="MenuItem_Checked_1"/>
+                <MenuItem Name="uploadCloud" Header="_Enable Upload" IsEnabled="False" IsCheckable="True" Checked="uploadCloud_Checked_1" Unchecked="uploadCloud_Unchecked_1"/>
+                <MenuItem Name="downloadCloud" Header="_Enable Download" IsEnabled="False" IsCheckable="True" Checked="downloadCloud_Checked_1"  Unchecked="downloadCloud_Unchecked_1"/>
+            </MenuItem>
+            <MenuItem Header="_Password">
+                <MenuItem Name="passwordItem" Header="_Activate Password Protection" IsCheckable="True" StaysOpenOnClick="True" Unchecked="MenuItem_Unchecked_2" Checked="MenuItem_Checked_2" />
+            </MenuItem>
+        </Menu>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" MinHeight="400" Grid.Row="1">
+            <WrapPanel Name="mainStackPanel">
+                <WrapPanel Name="mainWrap">
+                    <Border CornerRadius="6" BorderBrush="LightGray" Background="WhiteSmoke" BorderThickness="2" DockPanel.Dock="Top">
+                        <StackPanel Name="processPanel" Margin="25px">
+                            <StackPanel Background="Lavender">
+                                <Label FontSize="20" Margin="3px"  HorizontalAlignment="Center"  HorizontalContentAlignment="Center">Process Usage</Label>
+                            </StackPanel>
+                            <WrapPanel Background="Lavender">
+                                <Label>Start Date:</Label>
+                                <DatePicker Name="mainProcessStartDate" SelectedDateChanged="mainProcessStartDateChanged"></DatePicker>
+                                <Label HorizontalAlignment="Right">End Date:</Label>
+                                <DatePicker HorizontalAlignment="Right" Name="mainProcessEndDate"  SelectedDateChanged="mainProcessEndDateChanged"></DatePicker>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <chartingToolkit:Chart Height="350" HorizontalAlignment="Stretch" Name="ProcessStatGraph" VerticalAlignment="Bottom" Width="1200">
+                                    <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" BorderBrush="White"/>
+                                </chartingToolkit:Chart>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+                    <Border CornerRadius="6" BorderBrush="LightGray" Background="WhiteSmoke" BorderThickness="2" DockPanel.Dock="Top">
+                        <StackPanel Name="pcPanel" Margin="25px">
+                            <StackPanel Background="Lavender">
+                                <Label Margin="3px" FontSize="20" HorizontalAlignment="Center" HorizontalContentAlignment="Center">PC Time</Label>
+                            </StackPanel>
+                            <WrapPanel Background="Lavender">
+                                <Label>Start Date:</Label>
+                                <DatePicker Name="laptopStartDate" SelectedDateChanged="laptopStartDateChanged"></DatePicker>
+                                <Label HorizontalAlignment="Right">End Date:</Label>
+                                <DatePicker Name="laptopEndDate" HorizontalAlignment="Right"  SelectedDateChanged="laptopEndDateChanged"></DatePicker>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <chartingToolkit:Chart  Width="1200" Name="laptopStatGraph" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="350">
+                                    <chartingToolkit:LineSeries  DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" IsSelectionEnabled="True"/>
+                                </chartingToolkit:Chart>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+                </WrapPanel>
+                <StackPanel Name="mainActivityControl">
+                    <Border CornerRadius="6" BorderBrush="LightGray" Background="WhiteSmoke" BorderThickness="2" DockPanel.Dock="Top">
+                        <StackPanel Margin="25px">
+                            <StackPanel Background="Lavender">
+                                <Label FontSize="20" Margin="3px" HorizontalAlignment="Center" HorizontalContentAlignment="Center">PC Logs</Label>
+                            </StackPanel>
+                            <WrapPanel Background="Lavender">
+                                <Label>Date:</Label>
+                                <DatePicker Name="mainActivityDate" SelectedDateChanged="mainActivityDateChanged"></DatePicker>
+                            </WrapPanel>
+                            <Grid Name="mainActivities" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </WrapPanel>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

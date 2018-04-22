@@ -1,0 +1,5 @@
+C:\Users\Sakaar\Documents\Visual Studio 2012\Projects\wpf\ActivityMonitor\bin\Debug\ActivityMonitor.dll
+C:\Users\Sakaar\Documents\Visual Studio 2012\Projects\wpf\ActivityMonitor\bin\Debug\ActivityMonitor.pdb
+C:\Users\Sakaar\Documents\Visual Studio 2012\Projects\wpf\ActivityMonitor\obj\Debug\ActivityMonitor.csprojResolveAssemblyReference.cache
+C:\Users\Sakaar\Documents\Visual Studio 2012\Projects\wpf\ActivityMonitor\obj\Debug\ActivityMonitor.dll
+C:\Users\Sakaar\Documents\Visual Studio 2012\Projects\wpf\ActivityMonitor\obj\Debug\ActivityMonitor.pdb

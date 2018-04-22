@@ -1,0 +1,14 @@
+Folder PCTRack contains windows software:
+requirements: .net framework 4.5
+1. to install run the "install.bat" file.
+2. enter directory and the application starts running
+3. (note that application always runs in system tray)
+
+To uninstall run the uninstall.bat file in PCTrack file
+
+Folder UbuntuPCTrack contains:
+requirements: dependencies file contains list of software required and how to install them
+1. python setup.py to install on ubuntu
+
+Folder PCTrack_code contains all the code for windows(visual studio solution) 
+(for ubuntu code and installation files are same)
